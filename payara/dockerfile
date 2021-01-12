@@ -1,0 +1,13 @@
+FROM payara/server-full:4.181
+
+COPY mariadb-java-client-2.3.0.jar /opt/payara41/glassfish/domains/domain1/lib/
+COPY mysql-connector-java-5.1.44-bin.jar /opt/payara41/glassfish/domains/domain1/lib/
+COPY mariadb-java-client-2.3.0.jar /opt/payara41/glassfish/domains/domain1/lib/
+COPY primefaces-6.1.jar /opt/payara41/glassfish/domains/domain1/lib/
+COPY domain.xml /opt/payara41/glassfish/domains/domain1/config/
+COPY admin-keyfile /opt/payara41/glassfish/domains/domain1/config/
+
+COPY ECP_EAR.ear $DEPLOY_DIR
+
+EXPOSE 4848
+EXPOSE 8080

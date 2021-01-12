@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  lib-auth-jwt:
+    build: lib-auth-jwt/
+    ports: 
+      - 9000:9000
+  lib-auth-resourse:
+    build: lib-auth-resourse/
+    ports: 
+      - 9100:9100

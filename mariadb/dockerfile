@@ -1,0 +1,20 @@
+FROM mariadb:10.2
+
+#ENV MYSQL_ALLOW_EMPTY_PASSWORD=true
+#ENV MYSQL_USER=brett
+#ENV MYSQL_PASSWORD=root
+ENV MYSQL_DATABASE=bibl
+
+# Environment variables
+ENV MYSQL_ROOT_PASSWORD root
+
+# Allows you to change the value of "max_allowed_packet"
+#ADD ["mysqlconf/gatewaymy.cnf", "/etc/mysql/conf.d/conf_mysql.cnf"]
+
+# Create Database
+#RUN	mkdir /usr/sql
+#RUN	chmod 644 /usr/sql
+
+#ADD ["sql/sources.sql", "/usr/sql/sources.sql"]
+COPY d:/docker/library-compose/mariadb/dump/ /docker-entrypoint-initdb.d/
+COPY d:/docker/library-compose/mariadb/dump/test.sql .
